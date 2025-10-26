@@ -1,40 +1,413 @@
-# Hi, I'm Sagar Bade 👋
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Bade | Security Researcher</title>
+    <style>
+        /* Basic CSS Reset */
+        :root {
+            --bg-color: #121212;
+            --primary-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #00bfff; /* Deep Sky Blue */
+            --header-color: #ffffff;
+            --border-color: #333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header & Nav */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--header-color);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0 0 10px 0;
+            color: var(--header-color);
+        }
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+        .hero .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        .hero .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn {
+            text-decoration: none;
+            color: var(--header-color);
+            background-color: var(--accent-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+        .btn.secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
 
-<a href="https://www.linkedin.com/in/sagar-bade-819192158/" target="_blank">
-  <img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-sagar--bade-blue?style=flat-square&logo=linkedin">
-</a>
-<a href="mailto:sagarbade1997@gmail.com">
-  <img alt="Email" src="https://img.shields.io/badge/Email-sagarbade1997@gmail.com-red?style=flat-square&logo=gmail">
-</a>
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        h2 {
+            font-size: 2.5em;
+            color: var(--header-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
 
-I am a **Security Researcher** based in Pune, India, with over 6 years of hands-on experience in malware analysis, reverse engineering, and cyber threat research.
+        /* About Section */
+        #about p {
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto;
+        }
 
-My passion lies in dismantling complex malware, hunting for emerging threats, and building robust detection strategies. I have a deep understanding of Windows internals, x86 assembly, and I'm proficient in C/C++, Python, and C#.
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .skill-card {
+            background-color: var(--primary-color);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .skill-card h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .skill-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .skill-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .skill-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
 
----
+        /* Experience Section */
+        .timeline {
+            position: relative;
+        }
+        .timeline-item {
+            padding: 20px 0 20px 40px;
+            position: relative;
+        }
+        .timeline-item::before { /* The vertical line */
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+        .timeline-item::after { /* The dot */
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid var(--bg-color);
+            z-index: 1;
+        }
+        .timeline-item h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.4em;
+            color: var(--header-color);
+        }
+        .timeline-item .company {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        .timeline-item .date {
+            font-size: 0.9em;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        .timeline-item ul {
+            padding-left: 20px;
+        }
 
-### 🔬 What I Do
+        /* Publications */
+        .publication-card {
+            background-color: var(--primary-color);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        .publication-card h3 {
+            margin-top: 0;
+            color: var(--header-color);
+        }
+        .publication-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .publication-card a:hover {
+            text-decoration: underline;
+        }
 
-* **Malware Analysis & RE:** I reverse-engineer malware (PE, non-PE, Office macros, HTA, JS) to uncover payload delivery, obfuscation techniques, and C2 communication.
-* **Threat Hunting:** I proactively hunt for new malware samples using feeds like VirusTotal and MalwareBazaar.
-* **Detection Engineering:** I write and fine-tune generic, static, and YARA signatures to detect malware families like AgentTesla, Formbook, and various MSIL-based threats.
-* **Email Security:** I specialize in analyzing sophisticated phishing campaigns, from fake login portals to HTML smuggling.
+        /* Contact */
+        #contact {
+            text-align: center;
+        }
+        #contact p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
 
-### 🛠️ My Toolkit
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero .subtitle {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
 
-| Category | Tools & Technologies |
-| :--- | :--- |
-| **Disassemblers/Debuggers** | IDA Pro, OllyDbg, x64dbg, DnSpy |
-| **Analysis Tools** | YARA, Cuckoo Sandbox, URLScan |
-| **Programming** | Python, C/C++, C# |
-| **Core Concepts** | Windows Internals, x86 Assembly, Malware Family Tracking |
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Sagar Bade</div>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-### 📄 My Recent Publication
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Hi, I'm <span>Sagar Bade</span></h1>
+            <p class="subtitle">Security Researcher specializing in Malware Analysis, Reverse Engineering, and Threat Hunting.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn">Get in Touch</a>
+                <a href="https://www.linkedin.com/in/sagar-bade-819192158/" target="_blank" class="btn secondary">View LinkedIn</a>
+            </div>
+        </div>
+    </section>
 
-* **[The silent, fileless threat of VShell](https://www.trellix.com/blogs/research/the-silent-fileless-threat-of-vshell/)** - A technical blog for Trellix on a fileless malware variant.
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                [cite_start]I am a Security Researcher with over 6 years of dedicated experience in malware analysis and cyber threat research[cite: 5]. [cite_start]My expertise lies in reverse engineering (x86 assembly), malware hunting, and detection engineering using tools like YARA, OllyDbg, and IDA Pro[cite: 6, 15, 17, 37]. [cite_start]I am proficient in C/C++, Python, and C#[cite: 6, 18, 19], and I thrive on dissecting complex threats to build robust, proactive detection strategies.
+            </p>
+        </div>
+    </section>
 
-### 📈 My Experience
+    <section id="skills">
+        <div class="container">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Analysis & Reversing</h3>
+                    <ul>
+                        [cite_start]<li>Malware Analysis [cite: 11]</li>
+                        [cite_start]<li>Reverse Engineering [cite: 6]</li>
+                        [cite_start]<li>Dynamic Analysis [cite: 12]</li>
+                        [cite_start]<li>Payload Unpacking [cite: 13]</li>
+                        [cite_start]<li>Malware Family Tracking [cite: 9]</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Internals</h3>
+                    <ul>
+                        [cite_start]<li>YARA [cite: 17]</li>
+                        [cite_start]<li>OllyDbg / x64dbg [cite: 15, 37]</li>
+                        [cite_start]<li>IDA Pro [cite: 37]</li>
+                        [cite_start]<li>DnSpy [cite: 16]</li>
+                        [cite_start]<li>Windows Internals [cite: 14]</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Programming & Domains</h3>
+                    <ul>
+                        [cite_start]<li>Python [cite: 18]</li>
+                        [cite_start]<li>C / C++ [cite: 6, 38]</li>
+                        [cite_start]<li>C# (MSIL Malware) [cite: 19, 33]</li>
+                        [cite_start]<li>Threat Intelligence [cite: 10]</li>
+                        [cite_start]<li>Email Security [cite: 20]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-* **Security Researcher** @ **Trellix** (Aug 2022 - Current)
-* **Security Researcher** @ **Mindtree (LTIMindtree)** (Dec 2020 - Aug 2022)
-* **Malware Analyst** @ **Max Secure Software** (Aug 2018 - Nov 2020)
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <h3>Security Researcher</h3>
+                    <div class="company">Trellix</div>
+                    [cite_start]<div class="date">August 2022 - Current [cite: 22]</div>
+                    <ul>
+                        [cite_start]<li>Analyze phishing campaigns and malware-laced emails reported by enterprise customers[cite: 24].</li>
+                        [cite_start]<li>Reverse-engineer attachments (Office macros, HTA, JS, HTML smuggling) to identify payloads[cite: 26].</li>
+                        [cite_start]<li>Write generic and static signatures to improve detection accuracy for malware and phishing[cite: 27].</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Security Researcher</h3>
+                    <div class="company">Mindtree (LTIMindtree)</div>
+                    [cite_start]<div class="date">December 2020 - August 2022 [cite: 29]</div>
+                    <ul>
+                        [cite_start]<li>Hunted for malware from MalwareBazaar, VirusTotal, and private feeds to build an internal knowledge base[cite: 31].</li>
+                        [cite_start]<li>Specialized in AgentTesla, Formbook, and MSIL malware families, publishing detection updates[cite: 33].</li>
+                        [cite_start]<li>Trained junior analysts on malware reverse engineering and YARA rule creation[cite: 35].</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Malware Analyst (Intern → Full-time)</h3>
+                    <div class="company">Max Secure Software</div>
+                    [cite_start]<div class="date">August 2018 - November 2020 [cite: 36]</div>
+                    <ul>
+                        [cite_start]<li>Performed reverse engineering of PE and non-PE files using IDA Pro, OllyDbg, and x64dbg[cite: 37].</li>
+                        [cite_start]<li>Developed C++ detection code by analyzing malware entry points and recurring code patterns[cite: 38].</li>
+                        [cite_start]<li>Built an ML-based malware classifier (Random Forest) using PE features and opcode analysis[cite: 41].</li>
+                        [cite_start]<li>Integrated Cuckoo Sandbox with SIEM for automated malware hunting and reporting[cite: 39].</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="container">
+            <h2>Publications & Projects</h2>
+            <div class="publication-card">
+                <h3>The silent, fileless threat of VShell</h3>
+                [cite_start]<p>A technical blog post for Trellix analyzing a fileless threat. [cite: 49]</p>
+                <a href="https://www.trellix.com/blogs/research/the-silent-fileless-threat-of-vshell/" target="_blank">Read Article →</a>
+            </div>
+            <div class="publication-card">
+                <h3>ML-Based Malware Classifier</h3>
+                [cite_start]<p>As part of my work at Max Secure Software, I built a Random Forest classifier to detect malware using PE entropy, opcode features, and metadata. [cite: 41]</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to discussing new threats, technologies, or opportunities.</p>
+            <div class="cta-buttons">
+                <a href="mailto:sagarbade1997@gmail.com" class="btn">Email Me</a>
+                <a href="https://www.linkedin.com/in/sagar-bade-819192158/" target="_blank" class="btn secondary">View LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sagar Bade. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
